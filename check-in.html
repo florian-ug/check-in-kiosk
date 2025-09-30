@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Camping Check-In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin: 0; height: 100vh; }
+    iframe { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="formFrame"
+    src="https://docs.google.com/forms/d/e/1eZIJZ-iK9_5k27C-yLlQF20C3MHlFMlByVTVx7RjWHY/viewform?embedded=true">
+  </iframe>
+
+  <script>
+    const iframe = document.getElementById("formFrame");
+    const formUrl = iframe.src;
+
+    // Reload the form automatically every 30 seconds after submission
+    setInterval(() => {
+      if (iframe.src.includes("formResponse")) {
+        iframe.src = formUrl;
+      }
+    }, 30000);
+  </script>
+</body>
+</html>
